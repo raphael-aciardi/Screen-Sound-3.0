@@ -11,18 +11,12 @@ internal class Avaliacao
 {
     public Avaliacao(int nota)
     {
-        if (nota < 0)
-        {
-            Nota = 0;
-        }
-        else if (nota > 10)
-        {
-            Nota = 10;
-        }
-        else
-        {
-            Nota = nota;
-        }
+        if (nota < 0) Nota = 0;
+       
+        if (nota > 10) Nota = 10;
+        
+        Nota = nota;
+
     }
 
     public int Nota { get; }

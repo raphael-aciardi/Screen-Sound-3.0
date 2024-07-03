@@ -1,4 +1,5 @@
-﻿using ScreenSound.Modelos;
+﻿using ScreenSound.Menus;
+using ScreenSound.Modelos;
 
 internal class Program
 {
@@ -59,7 +60,9 @@ internal class Program
                     AvaliarUmaBanda();
                     break;
                 case 5:
-                    ExibirDetalhes();
+                    MenuExibirDetalhes menu = new();
+                    menu.Executar(bandasRegistradas);
+                    ExibirOpcoesDoMenu();
                     break;
                 case -1:
                     Console.WriteLine("Obrigado por utilizar nosso programa");
@@ -137,6 +140,7 @@ internal class Program
             Console.WriteLine(asteriscos + "\n");
         }
 
+
         void AvaliarUmaBanda()
         {
             Console.Clear();
@@ -163,35 +167,6 @@ internal class Program
                 ExibirOpcoesDoMenu();
             }
 
-        }
-
-        void ExibirDetalhes()
-        {
-            Console.Clear();
-            ExibirTituloDaOpcao("Exibir detalhes da banda");
-            Console.Write("Digite o nome da banda que deseja conhecer melhor: ");
-            string nomeDaBanda = Console.ReadLine()!;
-            if (bandasRegistradas.ContainsKey(nomeDaBanda))
-            {
-                Banda banda = bandasRegistradas[nomeDaBanda];
-                Console.WriteLine($"\nA média da banda {nomeDaBanda} é {banda.Media}.");
-                /**
-                * ESPAÇO RESERVADO PARA COMPLETAR A FUNÇÃO
-                */
-                Console.WriteLine("Digite uma tecla para votar ao menu principal");
-                Console.ReadKey();
-                Console.Clear();
-                ExibirOpcoesDoMenu();
-
-            }
-            else
-            {
-                Console.WriteLine($"\nA banda {nomeDaBanda} não foi encontrada!");
-                Console.WriteLine("Digite uma tecla para voltar ao menu principal");
-                Console.ReadKey();
-                Console.Clear();
-                ExibirOpcoesDoMenu();
-            }
         }
 
         ExibirOpcoesDoMenu();
