@@ -1,5 +1,7 @@
 ﻿
 
+using ScreenSound.Modelos;
+
 namespace ScreenSound.Menus;
 
 internal class Menu
@@ -11,5 +13,9 @@ internal class Menu
         Console.WriteLine(asteriscos);
         Console.WriteLine(titulo);
         Console.WriteLine(asteriscos + "\n");
+    }
+    public virtual void Executar(Dictionary<string, Banda> bandasRegistradas)
+    {
+        Console.Clear();
     }
 }
